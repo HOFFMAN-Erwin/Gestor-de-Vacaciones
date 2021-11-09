@@ -40,6 +40,11 @@ namespace Gestor_de_Vacaciones
             this.btnSalir = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtFechaIn = new System.Windows.Forms.TextBox();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.lblAñoIn = new System.Windows.Forms.Label();
+            this.lblLista = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -71,6 +76,7 @@ namespace Gestor_de_Vacaciones
             this.btnMostrar.TabIndex = 1;
             this.btnMostrar.Text = "Mostrar";
             this.btnMostrar.UseVisualStyleBackColor = true;
+            this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
             // 
             // btnCargar
             // 
@@ -175,15 +181,67 @@ namespace Gestor_de_Vacaciones
             this.dataGridView1.Size = new System.Drawing.Size(329, 320);
             this.dataGridView1.TabIndex = 4;
             // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(224, 151);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(100, 20);
+            this.txtNombre.TabIndex = 5;
+            // 
+            // txtFechaIn
+            // 
+            this.txtFechaIn.Location = new System.Drawing.Point(224, 215);
+            this.txtFechaIn.Name = "txtFechaIn";
+            this.txtFechaIn.Size = new System.Drawing.Size(100, 20);
+            this.txtFechaIn.TabIndex = 5;
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.lblNombre.Location = new System.Drawing.Point(221, 128);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(63, 16);
+            this.lblNombre.TabIndex = 1;
+            this.lblNombre.Text = "Nombre";
+            // 
+            // lblAñoIn
+            // 
+            this.lblAñoIn.AutoSize = true;
+            this.lblAñoIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAñoIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.lblAñoIn.Location = new System.Drawing.Point(221, 193);
+            this.lblAñoIn.Name = "lblAñoIn";
+            this.lblAñoIn.Size = new System.Drawing.Size(91, 16);
+            this.lblAñoIn.TabIndex = 1;
+            this.lblAñoIn.Text = "Año Ingreso";
+            // 
+            // lblLista
+            // 
+            this.lblLista.AutoSize = true;
+            this.lblLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLista.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
+            this.lblLista.Location = new System.Drawing.Point(222, 248);
+            this.lblLista.Name = "lblLista";
+            this.lblLista.Size = new System.Drawing.Size(58, 24);
+            this.lblLista.TabIndex = 1;
+            this.lblLista.Text = "Lista:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(787, 503);
+            this.Controls.Add(this.lblAñoIn);
+            this.Controls.Add(this.lblNombre);
+            this.Controls.Add(this.txtFechaIn);
+            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtBuscar);
+            this.Controls.Add(this.lblLista);
             this.Controls.Add(this.lblEmpleados);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -214,6 +272,11 @@ namespace Gestor_de_Vacaciones
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtFechaIn;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Label lblAñoIn;
+        private System.Windows.Forms.Label lblLista;
     }
 }
 
