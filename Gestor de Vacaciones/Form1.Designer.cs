@@ -73,7 +73,7 @@ namespace Gestor_de_Vacaciones
             this.btnMostrar.Location = new System.Drawing.Point(0, 215);
             this.btnMostrar.Name = "btnMostrar";
             this.btnMostrar.Size = new System.Drawing.Size(186, 34);
-            this.btnMostrar.TabIndex = 1;
+            this.btnMostrar.TabIndex = 4;
             this.btnMostrar.Text = "Mostrar";
             this.btnMostrar.UseVisualStyleBackColor = true;
             this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
@@ -87,7 +87,7 @@ namespace Gestor_de_Vacaciones
             this.btnCargar.Location = new System.Drawing.Point(0, 175);
             this.btnCargar.Name = "btnCargar";
             this.btnCargar.Size = new System.Drawing.Size(186, 34);
-            this.btnCargar.TabIndex = 1;
+            this.btnCargar.TabIndex = 3;
             this.btnCargar.Text = "Cargar";
             this.btnCargar.UseVisualStyleBackColor = true;
             this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
@@ -144,7 +144,7 @@ namespace Gestor_de_Vacaciones
             this.txtBuscar.Multiline = true;
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(329, 29);
-            this.txtBuscar.TabIndex = 2;
+            this.txtBuscar.TabIndex = 5;
             this.txtBuscar.Text = "Buscar...";
             // 
             // btnSalir
@@ -156,7 +156,7 @@ namespace Gestor_de_Vacaciones
             this.btnSalir.Location = new System.Drawing.Point(0, 457);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(186, 34);
-            this.btnSalir.TabIndex = 1;
+            this.btnSalir.TabIndex = 6;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             // 
@@ -168,7 +168,7 @@ namespace Gestor_de_Vacaciones
             this.button1.Location = new System.Drawing.Point(750, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(25, 25);
-            this.button1.TabIndex = 3;
+            this.button1.TabIndex = 8;
             this.button1.Text = "X";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -179,21 +179,21 @@ namespace Gestor_de_Vacaciones
             this.dataGridView1.Location = new System.Drawing.Point(433, 151);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(329, 320);
-            this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.TabIndex = 7;
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(224, 151);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
-            this.txtNombre.TabIndex = 5;
+            this.txtNombre.TabIndex = 1;
             // 
             // txtFechaIn
             // 
             this.txtFechaIn.Location = new System.Drawing.Point(224, 215);
             this.txtFechaIn.Name = "txtFechaIn";
             this.txtFechaIn.Size = new System.Drawing.Size(100, 20);
-            this.txtFechaIn.TabIndex = 5;
+            this.txtFechaIn.TabIndex = 2;
             // 
             // lblNombre
             // 
