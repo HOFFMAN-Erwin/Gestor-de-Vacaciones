@@ -10,6 +10,8 @@ namespace Gestor_de_Vacaciones
     {
         public Persona[] Personas { get; set; }
 
+        public int UltimoCódigo { get; set; } = 0;
+
         public void Redimensionar()
         {
             if (Personas == null)
@@ -32,11 +34,14 @@ namespace Gestor_de_Vacaciones
             Persona persona = new Persona();
             persona.Nombre = nombre;
             persona.FechaIngreso = Convert.ToInt32(año);
+            
 
             bool resp = persona.Validar();
 
             if (resp)
             {
+                UltimoCódigo = UltimoCódigo + 1;
+                persona.Código = UltimoCódigo;
                 Redimensionar();
                 Personas[Personas.Length - 1] = persona;
             }
@@ -48,9 +53,25 @@ namespace Gestor_de_Vacaciones
             Resp = "Lista \r\n";
             foreach (Persona item in Personas)
             {
-                Resp = Resp + item.FechaIngreso.ToString() + " - " + item.Nombre + "\r\n";
+                Resp = Resp + item.Código.ToString() + " - " 
+                    + item.FechaIngreso.ToString() + " - "
+                    + item.Nombre + "\r\n";
             }
             return Resp;
+        }
+        public Persona BuscarPersona(int código)
+        {
+            Persona res = new Persona();
+
+            foreach (Persona item in Personas)
+            {
+                if (item.Código == código)
+                {
+                    res = item;
+                    break;
+                }
+            }
+            return res;
         }
     }
 }

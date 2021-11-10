@@ -39,10 +39,10 @@ namespace Gestor_de_Vacaciones
             }
             else
             {
+                btnMostrar_Click(null, null);
                 txtNombre.Text = "";
                 txtFechaIn.Text = "";
                 txtNombre.Focus();
-                lblLista.Text = "Persona cargada";
             }
         }
         
@@ -50,6 +50,30 @@ namespace Gestor_de_Vacaciones
         private void btnMostrar_Click(object sender, EventArgs e)
         {
             lblLista.Text = Lista.ToString();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            Persona per = Lista.BuscarPersona(Convert.ToInt32(txtBuscar.Text));
+            if (per.Código > 0)
+            {
+                txtNombre.Text = per.Nombre;
+                txtFechaIn.Text = per.FechaIngreso.ToString();
+
+                txtNombre.Focus();
+            }
+            else
+            {
+                txtBuscar.Text = "No existe";
+                txtBuscar.Focus();
+                txtBuscar.SelectAll();
+            }
+
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
