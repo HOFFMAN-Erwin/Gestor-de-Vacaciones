@@ -17,6 +17,8 @@ namespace Gestor_de_Vacaciones
         public Form1()
         {
             InitializeComponent();
+
+            dg.DataSource = Lista.DT;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -55,7 +57,7 @@ namespace Gestor_de_Vacaciones
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             Persona per = Lista.BuscarPersona(Convert.ToInt32(txtBuscar.Text));
-            if (per.Código > 0)
+            if (per.Id > 0)
             {
                 txtNombre.Text = per.Nombre;
                 txtFechaIn.Text = per.FechaIngreso.ToString();

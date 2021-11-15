@@ -8,9 +8,8 @@ namespace Gestor_de_Vacaciones
 {
     public class Persona
     {
-        public int Código { get; set; }
-        public string Nombre { get; set; }
         public int Id { get; set; }
+        public string Nombre { get; set; }
         public int FechaIngreso { get; set; }
 
         public bool Validar()

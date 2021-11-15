@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,22 @@ namespace Gestor_de_Vacaciones
     {
         public Persona[] Personas { get; set; }
 
+        public DataTable DT { get; set; } = new DataTable();
+
         public int UltimoCódigo { get; set; } = 0;
+
+        public ListaEmpleados()
+        {
+            DT.TableName = "ListaEmpleados";
+            DT.Columns.Add("Id");
+            DT.Columns.Add("Nomebre");
+            DT.Columns.Add("AñoIngreso");
+        }
+
+        public void LeerDT_DeArchivo()
+        {
+
+        }
 
         public void Redimensionar()
         {
@@ -41,7 +57,7 @@ namespace Gestor_de_Vacaciones
             if (resp)
             {
                 UltimoCódigo = UltimoCódigo + 1;
-                persona.Código = UltimoCódigo;
+                persona.Id = UltimoCódigo;
                 Redimensionar();
                 Personas[Personas.Length - 1] = persona;
             }
@@ -53,7 +69,7 @@ namespace Gestor_de_Vacaciones
             Resp = "Lista \r\n";
             foreach (Persona item in Personas)
             {
-                Resp = Resp + item.Código.ToString() + " - " 
+                Resp = Resp + item.Id.ToString() + " - " 
                     + item.FechaIngreso.ToString() + " - "
                     + item.Nombre + "\r\n";
             }
@@ -65,7 +81,7 @@ namespace Gestor_de_Vacaciones
 
             foreach (Persona item in Personas)
             {
-                if (item.Código == código)
+                if (item.Id == código)
                 {
                     res = item;
                     break;
@@ -73,5 +89,15 @@ namespace Gestor_de_Vacaciones
             }
             return res;
         }
+        public bool UpdatePersona(Persona persona)
+
+        {
+            return false;
+        }
+        public bool DeletePersona(Persona persona)
+        {
+            return false;
+        }
+        
     }
-}
+}  

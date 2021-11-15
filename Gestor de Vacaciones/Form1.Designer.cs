@@ -30,6 +30,7 @@ namespace Gestor_de_Vacaciones
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnBorrar = new System.Windows.Forms.Button();
             this.btnMostrar = new System.Windows.Forms.Button();
             this.btnCargar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -37,9 +38,8 @@ namespace Gestor_de_Vacaciones
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblEmpleados = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.btnBorrar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dg = new System.Windows.Forms.DataGridView();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtFechaIn = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
@@ -49,7 +49,7 @@ namespace Gestor_de_Vacaciones
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -64,6 +64,19 @@ namespace Gestor_de_Vacaciones
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(186, 503);
             this.panel1.TabIndex = 0;
+            // 
+            // btnBorrar
+            // 
+            this.btnBorrar.FlatAppearance.BorderSize = 0;
+            this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBorrar.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBorrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnBorrar.Location = new System.Drawing.Point(0, 457);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(186, 34);
+            this.btnBorrar.TabIndex = 6;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.UseVisualStyleBackColor = true;
             // 
             // btnMostrar
             // 
@@ -148,25 +161,12 @@ namespace Gestor_de_Vacaciones
             this.txtBuscar.TabIndex = 5;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
-            // btnBorrar
-            // 
-            this.btnBorrar.FlatAppearance.BorderSize = 0;
-            this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBorrar.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBorrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnBorrar.Location = new System.Drawing.Point(0, 457);
-            this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(186, 34);
-            this.btnBorrar.TabIndex = 6;
-            this.btnBorrar.Text = "Borrar";
-            this.btnBorrar.UseVisualStyleBackColor = true;
-            // 
             // button1
             // 
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(750, 12);
+            this.button1.Location = new System.Drawing.Point(763, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(25, 25);
             this.button1.TabIndex = 8;
@@ -174,13 +174,13 @@ namespace Gestor_de_Vacaciones
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // dataGridView1
+            // dg
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(433, 151);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(329, 320);
-            this.dataGridView1.TabIndex = 7;
+            this.dg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dg.Location = new System.Drawing.Point(433, 151);
+            this.dg.Name = "dg";
+            this.dg.Size = new System.Drawing.Size(329, 320);
+            this.dg.TabIndex = 7;
             // 
             // txtNombre
             // 
@@ -255,7 +255,7 @@ namespace Gestor_de_Vacaciones
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtFechaIn);
             this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dg);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.lblLista);
@@ -270,7 +270,7 @@ namespace Gestor_de_Vacaciones
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,7 +288,7 @@ namespace Gestor_de_Vacaciones
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dg;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtFechaIn;
         private System.Windows.Forms.Label lblNombre;
