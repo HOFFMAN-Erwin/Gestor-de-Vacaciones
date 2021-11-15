@@ -9,95 +9,104 @@ namespace Gestor_de_Vacaciones
 {
     public class ListaEmpleados
     {
-        public Persona[] Personas { get; set; }
-
         public DataTable DT { get; set; } = new DataTable();
 
-        public int UltimoCódigo { get; set; } = 0;
+        public int UltimoCodigo { get; set; } = 0;
 
         public ListaEmpleados()
         {
             DT.TableName = "ListaEmpleados";
             DT.Columns.Add("Id");
-            DT.Columns.Add("Nomebre");
-            DT.Columns.Add("AñoIngreso");
+            DT.Columns.Add("Nombre");
+            DT.Columns.Add("FechaIngreso");
+            LeerDT_DeArchivo();
         }
 
         public void LeerDT_DeArchivo()
         {
-
-        }
-
-        public void Redimensionar()
-        {
-            if (Personas == null)
+            if (System.IO.File.Exists("Lista.xml"))
             {
-                Personas = new Persona[1];
-            }
-            else
-            {
-                Persona[] arrayAuxiliar = new Persona[Personas.Length + 1];
-                for (int i = 0; i < Personas.Length; i++)
+                //DT.Clear();
+                DT.ReadXml("Lista.xml");
+                UltimoCodigo = 0;
+                for (int i = 0; i < DT.Rows.Count; i++)
                 {
-                    arrayAuxiliar[i] = Personas[i];
+                    if (Convert.ToInt32(DT.Rows[i]["Id"])>UltimoCodigo)
+                    {
+                        UltimoCodigo = Convert.ToInt32(DT.Rows[i]["Id"]);
+                    }
                 }
-                Personas = arrayAuxiliar;
             }
-        }
-
-        public bool AddPersona(string nombre, string año)
-        {
-            Persona persona = new Persona();
-            persona.Nombre = nombre;
-            persona.FechaIngreso = Convert.ToInt32(año);
             
-
+        }
+        public bool AddPersona(Persona persona)
+        {
+            
             bool resp = persona.Validar();
 
             if (resp)
             {
-                UltimoCódigo = UltimoCódigo + 1;
-                persona.Id = UltimoCódigo;
-                Redimensionar();
-                Personas[Personas.Length - 1] = persona;
+                if (persona.Id == 0)
+                {
+                    UltimoCodigo = UltimoCodigo + 1;
+                    persona.Id = UltimoCodigo;
+                    
+                    DT.Rows.Add();
+                    int NumeroRegistroNuevo = DT.Rows.Count - 1;
+
+                    DT.Rows[NumeroRegistroNuevo]["Id"] = persona.Id.ToString();
+                    DT.Rows[NumeroRegistroNuevo]["Nombre"] = persona.Nombre;
+                    DT.Rows[NumeroRegistroNuevo]["AñoIngreso"] = persona.FechaIngreso.ToString();
+
+                    DT.WriteXml("Lista.xml");
+                }
+                else
+                {
+                    for (int i = 0; i < DT.Rows.Count; i++)
+                    {
+                        if (Convert.ToInt32(DT.Rows[i]["Id"])==persona.Id)
+                        {
+                            DT.Rows[i]["Nombre"] = persona.Nombre;
+                            DT.Rows[i]["AñoIngreso"] = persona.FechaIngreso.ToString();
+                            DT.WriteXml("Lista.xml");
+                            break;
+                        }
+                    }
+                }
             }
             return resp;            
         }
-        public override string ToString()
-        {
-            string Resp = "";
-            Resp = "Lista \r\n";
-            foreach (Persona item in Personas)
-            {
-                Resp = Resp + item.Id.ToString() + " - " 
-                    + item.FechaIngreso.ToString() + " - "
-                    + item.Nombre + "\r\n";
-            }
-            return Resp;
-        }
-        public Persona BuscarPersona(int código)
+        public Persona BuscarPersona(int id)
         {
             Persona res = new Persona();
-
-            foreach (Persona item in Personas)
+            for (int i = 0; i < DT.Rows.Count; i++)
             {
-                if (item.Id == código)
+                if (Convert.ToInt32(DT.Rows[i]["Id"])==id)
                 {
-                    res = item;
+                    res.Id = Convert.ToInt32(DT.Rows[i]["Id"]);
+                    res.Nombre = DT.Rows[i]["Nombre"].ToString();
+                    res.FechaIngreso = Convert.ToInt32(DT.Rows[i]["FechaIngreso"]);
                     break;
                 }
             }
             return res;
         }
-        public bool UpdatePersona(Persona persona)
-
-        {
-            return false;
-        }
+        
         public bool DeletePersona(Persona persona)
         {
-            return false;
+            bool resp = false;
+
+            for (int i = 0; i < DT.Rows.Count; i++)
+            {
+                if (Convert.ToInt32(DT.Rows[i]["Id"])==persona.Id) 
+                {
+                    DT.Rows[i].Delete();
+                    DT.WriteXml("Lista.xml");
+                    resp = true;
+                    break;
+                }
+            }
+            return resp;
         }
-        
     }
 }  

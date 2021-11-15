@@ -13,12 +13,14 @@ namespace Gestor_de_Vacaciones
 
     public partial class Form1 : Form
     {
+        Persona per = new Persona();
         public ListaEmpleados Lista { get; set; } = new ListaEmpleados();
         public Form1()
         {
             InitializeComponent();
 
             dg.DataSource = Lista.DT;
+          
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -33,7 +35,10 @@ namespace Gestor_de_Vacaciones
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            if (!Lista.AddPersona(txtNombre.Text, txtFechaIn.Text))
+            per.Nombre = txtNombre.Text;
+            per.FechaIngreso = Convert.ToInt32(txtFechaIn.Text);
+            
+            if (!Lista.AddPersona(per))
             {
                 txtFechaIn.Focus();
                 txtFechaIn.SelectAll();
@@ -41,11 +46,9 @@ namespace Gestor_de_Vacaciones
             }
             else
             {
-                btnMostrar_Click(null, null);
-                txtNombre.Text = "";
-                txtFechaIn.Text = "";
-                txtNombre.Focus();
+                limpiar();
             }
+            per = new Persona();
         }
         
 
@@ -56,13 +59,14 @@ namespace Gestor_de_Vacaciones
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            Persona per = Lista.BuscarPersona(Convert.ToInt32(txtBuscar.Text));
+            per = Lista.BuscarPersona(Convert.ToInt32(txtBuscar.Text));
             if (per.Id > 0)
             {
                 txtNombre.Text = per.Nombre;
                 txtFechaIn.Text = per.FechaIngreso.ToString();
 
                 txtNombre.Focus();
+                txtBuscar.Text = "";
             }
             else
             {
@@ -76,6 +80,27 @@ namespace Gestor_de_Vacaciones
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            if (Lista.DeletePersona(per))
+            {
+                limpiar();
+            }
+            else
+            {
+                lblLista.Text = "El registro " + per.Nombre + " no se pudo borrar.";
+                limpiar();
+            }
+            per = new Persona();
+        }
+        private void limpiar()
+        {
+            txtFechaIn.Text = "";
+            txtNombre.Text = "";
+            txtNombre.Focus();
+            lblLista.Text = "";
         }
     }
 }
