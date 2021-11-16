@@ -66,7 +66,7 @@ namespace Gestor_de_Vacaciones
                         if (Convert.ToInt32(DT.Rows[i]["Id"])==persona.Id)
                         {
                             DT.Rows[i]["Nombre"] = persona.Nombre;
-                            DT.Rows[i]["AñoIngreso"] = persona.FechaIngreso.ToString();
+                            DT.Rows[i]["FechaIngreso"] = persona.FechaIngreso.ToString();
                             DT.WriteXml("Lista.xml");
                             break;
                         }
