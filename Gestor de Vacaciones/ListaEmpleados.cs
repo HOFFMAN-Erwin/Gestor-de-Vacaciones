@@ -26,7 +26,6 @@ namespace Gestor_de_Vacaciones
         {
             if (System.IO.File.Exists("Lista.xml"))
             {
-                //DT.Clear();
                 DT.ReadXml("Lista.xml");
                 UltimoCodigo = 0;
                 for (int i = 0; i < DT.Rows.Count; i++)
@@ -91,7 +90,6 @@ namespace Gestor_de_Vacaciones
             }
             return res;
         }
-        
         public bool DeletePersona(Persona persona)
         {
             bool resp = false;

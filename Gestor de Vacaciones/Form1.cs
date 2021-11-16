@@ -30,7 +30,7 @@ namespace Gestor_de_Vacaciones
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            this.Close();
         }
 
         private void btnCargar_Click(object sender, EventArgs e)
