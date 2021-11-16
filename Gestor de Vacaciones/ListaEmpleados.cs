@@ -56,7 +56,7 @@ namespace Gestor_de_Vacaciones
 
                     DT.Rows[NumeroRegistroNuevo]["Id"] = persona.Id.ToString();
                     DT.Rows[NumeroRegistroNuevo]["Nombre"] = persona.Nombre;
-                    DT.Rows[NumeroRegistroNuevo]["AñoIngreso"] = persona.FechaIngreso.ToString();
+                    DT.Rows[NumeroRegistroNuevo]["FechaIngreso"] = persona.FechaIngreso.ToString();
 
                     DT.WriteXml("Lista.xml");
                 }
